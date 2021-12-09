@@ -1,16 +1,19 @@
+console.log("Javascript File is happening")
 document.addEventListener("DOMContentLoaded", () => {
   getBooks()
 
 
 })
 
+const fetchParameters = {
+  method: "GET",
+  headers:{
+    'Content-Type': 'application/json'
+  },
+}
+
 function getBooks () {
-  fetch ("https://reststop.randomhouse.com/resources/works/?start=0&max=15&expandLevel=1&search=Austen", {
-    method: GET,
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  })
+  fetch("https://gutendex.com/books", fetchParameters)
     .then(response => response.json())
     .then(data => console.log(data))
 }
