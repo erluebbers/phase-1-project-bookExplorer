@@ -6,10 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function getBooks (e) {
   e.preventDefault()
-  console.log(e.target.place.value)
-  // fetch("https://gutendex.com/books?search=Japan%20", fetchParameters)
-  //   .then(response => response.json())
-  //   .then(data => console.log(data.results))
+  const place = (e.target.place.value)
+  fetch(`https://gutendex.com/books?search=${place}%20`, fetchParameters)
+    .then(response => response.json())
+    .then(data => console.log(data.results))
+  document.getElementById("travel_input").reset()
 }
 
 const fetchParameters = {
@@ -22,7 +23,9 @@ const fetchParameters = {
 function createBookCard (book) {
   let bookItem = document.createElement(li)
   bookItem.innerHTML = `
-  <h2>
+  <h2>${book.title} </h2>
+
   `
+  document.getElementById("book_container").appendChild(bookItem)
   
 }
