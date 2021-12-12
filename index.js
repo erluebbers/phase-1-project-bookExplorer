@@ -9,7 +9,7 @@ function getBooks (e) {
   const place = (e.target.place.value)
   fetch(`https://gutendex.com/books?search=${place}%20`, fetchParameters)
     .then(response => response.json())
-    .then(data => console.log(data.results))
+    .then(data => data.results.forEach(book => createBookCard(book)))
   document.getElementById("travel_input").reset()
 }
 
@@ -21,11 +21,8 @@ const fetchParameters = {
 }
 
 function createBookCard (book) {
-  let bookItem = document.createElement(li)
-  bookItem.innerHTML = `
-  <h2>${book.title} </h2>
-
-  `
+  let bookItem = document.createElement('li')
+  bookItem.innerHTML = `<h3>${book.title} </h3>`
   document.getElementById("book_container").appendChild(bookItem)
   
 }
