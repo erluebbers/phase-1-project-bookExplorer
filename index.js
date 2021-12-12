@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  getBooks()
+  document.getElementById("travel_input").addEventListener('submit', getBooks)
 
 
 })
 
-function getBooks () {
-  fetch("https://gutendex.com/books?search=Japan%20", fetchParameters)
-    .then(response => response.json())
-    .then(data => console.log(data.results))
+function getBooks (e) {
+  e.preventDefault()
+  console.log(e.target.place.value)
+  // fetch("https://gutendex.com/books?search=Japan%20", fetchParameters)
+  //   .then(response => response.json())
+  //   .then(data => console.log(data.results))
 }
 
 const fetchParameters = {
