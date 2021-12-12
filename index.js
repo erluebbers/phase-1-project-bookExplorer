@@ -27,6 +27,23 @@ function createBookList (book) {
   bookItem.innerText = book.title
   document.getElementById("book_container").appendChild(bookItem)
   bookItem.addEventListener('click', () => {
-    
+    let list = document.createElement("ul")
+    list.innerHTML = `
+    <li>Author: ${book.authors[0].name}</li>
+    <li>Subject: 
+      
+    </li>
+    `
+    bookItem.appendChild(list)
   })
+}
+
+function subjectList (array) {
+  let subList = document.createElement('ul')
+  array.forEach(subject => {
+    let item = document.createElement('li')
+    item.innerText = subject
+    subList.appendChild(item)
+  })
+  return subList
 }
