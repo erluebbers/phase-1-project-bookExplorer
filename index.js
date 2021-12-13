@@ -30,11 +30,10 @@ function createBookList (book) {
     let list = document.createElement("ul")
     list.innerHTML = `
     <li>Author: ${book.authors[0].name}</li>
-    <li>Subject: 
-      
-    </li>
+    <li id="${book.id}">Subjects: </li>
     `
     bookItem.appendChild(list)
+    document.getElementById(`${book.id}`).appendChild(subjectList(book.subjects))
   })
 }
 
