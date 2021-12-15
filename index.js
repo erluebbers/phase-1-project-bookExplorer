@@ -29,7 +29,7 @@ function createBookList (book) {
   bookItem.addEventListener('click', () => {
     let list = document.createElement("ul")
     list.innerHTML = `
-    <li>Author: ${book.authors.includes('obj') ? book.authors[0].name : 'None Listed'}</li>
+    <li>Author: ${book.authors.length != 0 ? book.authors[0].name : 'none listed'}</li>
     <li id="${book.id}">Subjects: </li>
     `
     bookItem.appendChild(list)
