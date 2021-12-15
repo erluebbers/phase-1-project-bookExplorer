@@ -34,7 +34,7 @@ function createBookList (book) {
     `
     bookItem.appendChild(list)
     document.getElementById(`${book.id}`).appendChild(subjectList(book.subjects))
-  })
+  }, {once : true})
 }
 
 function subjectList (array) {
